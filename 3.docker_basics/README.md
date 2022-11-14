@@ -41,5 +41,12 @@ docker inspect [id] # Gives details about the container
 docker exec [id] ls /var/www/html
 docker exec -ti [id] bash
 docker run -d -p 3000:80 -v $(pwd):/usr/local/apache2/htdocs httpd
+```
 
+## Build our containers
+
+If I want to build my own image, I have to create a `Dockerfile`
+
+```bash
+docker build -t maalsi22-lille ./
 ```
