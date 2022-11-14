@@ -35,5 +35,4 @@ multipass launch --cpus 8 --disk 40G --mem 16G -n [vm_name]
 
 ```bash
 multipass --help
-multipass networks
 ```
