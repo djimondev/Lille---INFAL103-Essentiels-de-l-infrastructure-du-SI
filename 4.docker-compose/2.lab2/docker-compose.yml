@@ -1,0 +1,29 @@
+version: "3"
+services:
+  www1:
+    image: httpd
+    ports:
+      - "8001:80"
+    volumes:
+      - ./www1:/usr/local/apache2/htdocs/
+  www2:
+    image: caddy
+    ports:
+      - "8002:80"
+    volumes:
+      - ./www2:/usr/share/caddy/
+  www3:
+    image: nginx
+    ports:
+      - "8003:80"
+    volumes:
+      - ./www3:/usr/share/nginx/html/
+  www4:
+    build: www4
+    ports:
+      - "8004:80"
+    volumes:
+      - ./www4:/usr/share/nginx/html/
+networks:
+  default:
+    name: lille
