@@ -1,0 +1,35 @@
+version: "3"
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dolibarr
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "9000:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORTS: 9000
+      PMA_USER: root
+      PMA_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      UPLOAD_LIMIT: 300M
+  web:
+    image: tuxgasy/dolibarr
+    ports:
+      - "8123:80"
+    links:
+      - db
+    environment:
+      DOLI_DB_HOST: db
+      DOLI_DB_USER: root
+      DOLI_DB_PASSWORD: root
+      DOLI_DB_NAME: dolibarr
+      DOLI_URL_ROOT: "http://0.0.0.0"
+      PHP_INI_DATE_TIMEZONE: "Europe/Paris"
+      DOLI_ADMIN_LOGIN: "admin"
+      DOLI_ADMIN_PASSWORD: "admindoli"
