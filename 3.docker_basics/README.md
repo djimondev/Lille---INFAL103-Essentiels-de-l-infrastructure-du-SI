@@ -15,6 +15,10 @@ By default your host machine cannot communicate with a container via http or via
 If I want my host machine communicating via http with my container, I need to map ports by using `-p` option
 Eg. `docker run -d -p 3000:80 httpd # to map 80 port of my container on 3000 of my host machine`
 
+If I want my host machine communicating via filesystem with my container, I need to mount volumes by using `-v` option
+
+Eg. `docker run -d -p 3000:80 -v $(pwd):/var/www/html httpd # to mount ./ of my host machine in /var/www/html of my container`
+
 ## Some commands
 
 ```bash
@@ -31,6 +35,11 @@ docker run --rm ubuntu sleep 10
 docker run -d -p 3000:80 httpd # Container with id 2fd87aa3343e is running
 docker stop 2f # Stops httpd container
 docker rm 2f # Deletes httpd container
+docker rm $(docker ps -qa) # Deletes all stopped containers
 
+docker inspect [id] # Gives details about the container
+docker exec [id] ls /var/www/html
+docker exec -ti [id] bash
+docker run -d -p 3000:80 -v $(pwd):/usr/local/apache2/htdocs httpd
 
 ```
