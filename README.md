@@ -13,5 +13,5 @@
 6. [reverse proxy docker](./6.reverse_proxy_docker/README.md)
 7. [pipeline](./7.pipeline/README.md)
 8. [json-server](./8.json-server/README.md)
-9. [bo+ws]()
+9. [bo+ws](./9.sanity/README.md)
 10. [react]()
