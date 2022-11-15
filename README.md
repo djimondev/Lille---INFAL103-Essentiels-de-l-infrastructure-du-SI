@@ -10,7 +10,7 @@
 3. [docker basics](./3.docker_basics/README.md)
 4. [docker-compose](./4.docker-compose/README.md)
 5. [docker advanced](./5.docker_advanced/README.md)
-6. [reverse proxy docker]()
+6. [reverse proxy docker](./6.reverse_proxy_docker/README.md)
 7. [pipeline]()
 8. [bo+ws]()
 9. [react]()
